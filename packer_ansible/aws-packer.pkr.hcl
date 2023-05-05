@@ -8,12 +8,12 @@ packer {
 }
 variable "secret_key" {
   type    = string
-  default = "8SZfAD6Yf8VP9dtviBA3E1FH28Lf4X6AQEuCLbh3"
+  default = ""
 
 }
 variable "access_key" {
   type    = string
-  default = "AKIASK5LYKMXTYUNPCZO"
+  default = ""
 }
 source "amazon-ebs" "ubuntu" {
   ami_name      = "learn-packer-linux-aws"

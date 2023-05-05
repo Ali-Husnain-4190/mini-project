@@ -1,7 +1,7 @@
 {
     "variables": {
-        "aws_access_key": "AKIASK5LYKMXTYUNPCZO",
-        "aws_secret_key": "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",
+        "aws_access_key": "",
+        "aws_secret_key": "",
         "region": "us-east-1",
         "instance_type": "t2.micro"
     },
