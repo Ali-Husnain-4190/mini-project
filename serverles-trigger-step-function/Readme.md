@@ -1,4 +1,4 @@
-# Got Email when Ec2 instance stopped
+# Get Email when Ec2 instance stopped
 ![alt](./asset/diagram.png)
 
 # Summary
