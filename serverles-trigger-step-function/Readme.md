@@ -7,3 +7,6 @@
     2 Upload instance ID into DynamoDB
     3 Get value from DynamoDB and email to reciever.
 ![alt](./asset/stepfunction.png)
+
+
+

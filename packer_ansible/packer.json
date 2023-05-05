@@ -1,0 +1,46 @@
+{
+    "variables": {
+        "aws_access_key": "AKIASK5LYKMXTYUNPCZO",
+        "aws_secret_key": "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",
+        "region": "us-east-1",
+        "instance_type": "t2.micro"
+    },
+    "builders": [
+        {
+            "type": "amazon-ebs",
+            "access_key": "{{user `aws_access_key`}}",
+            "secret_key": "{{user `aws_secret_key`}}",
+            "region": "{{user `region`}}",
+            "instance_type": "{{user `instance_type`}}",
+            "ami_name": "Ali AMI",
+            "source_ami_filter": {
+                "filters": {
+                    "virtualization-type": "hvm",
+                    "name": "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*",
+                    "root-device-type": "ebs"
+                },
+                "owners": [
+                    "099720109477"
+                ],
+                "most_recent": true
+            },
+            "ssh_username": "ubuntu"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt update -y"
+            ]
+        },
+        {
+            "type": "shell",
+            "script": "./script.sh"
+        },
+        {
+            "type": "ansible-local",
+            "playbook_file": "./playbook.yml"
+        }
+    ]
+}
