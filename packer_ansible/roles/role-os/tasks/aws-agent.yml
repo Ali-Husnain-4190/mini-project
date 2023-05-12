@@ -1,5 +1,0 @@
----
-- name: Install cloud watch agent
-  yum:
-    name: https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb
-    state: present

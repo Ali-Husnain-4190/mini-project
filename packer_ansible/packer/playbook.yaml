@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  become: true
+  become_user: root
+  become_method: sudo
+  tasks:
+    - name: Install cloud watch agent
+      yum:
+        name: https://s3.amazonaws.com/amazoncloudwatch-agent/amazon_linux/amd64/latest/amazon-cloudwatch-agent.rpm
+        state: present
+    - name: stopped CW agent
+      service:
+        name: amazon-cloudwatch-agent
+        state: stopped

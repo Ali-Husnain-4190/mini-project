@@ -13,25 +13,26 @@
             "region": "{{user `region`}}",
             "instance_type": "{{user `instance_type`}}",
             "ami_name": "Ali AMI",
+            "communicator": "ssh",
             "source_ami_filter": {
                 "filters": {
                     "virtualization-type": "hvm",
-                    "name": "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*",
+                    "name": "amzn2-ami-hvm-2.0.20210525.0-x86_64-ebs",
                     "root-device-type": "ebs"
                 },
                 "owners": [
-                    "099720109477"
+                    "amazon"
                 ],
                 "most_recent": true
             },
-            "ssh_username": "ubuntu"
+            "ssh_username": "ec2-user"
         }
     ],
     "provisioners": [
         {
             "type": "shell",
             "inline": [
-                "sudo apt update -y"
+                "sudo yum update -y"
             ]
         },
         {
@@ -40,7 +41,7 @@
         },
         {
             "type": "ansible-local",
-            "playbook_file": "./playbook.yml"
+            "playbook_file": "./ansible/playbook.yaml"
         }
     ]
 }
