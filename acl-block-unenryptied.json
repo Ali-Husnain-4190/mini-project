@@ -1,0 +1,19 @@
+// This permession will block Uncrupted object to upload
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1687523631905",
+    "Statement": [
+        {
+            "Sid": "Stmt1687523630338",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::b1-ali/*",
+            "Condition": {
+                "Null": {
+                    "s3:x-amz-server-side-encryption": "true"
+                }
+            }
+        }
+    ]
+}
